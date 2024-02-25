@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer"/>
+    <title>Course Filtering</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container px-3 py-3">
+         <h2 class=" h "> <a class="navbar-brand" href="#">EDUCATION HUB</a> </h2>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item ms-lg-3">
+                <a class="nav-link " aria-current="page" href="/index.html">Home</a>
+              </li>
+            
+              <li class="nav-item dropdown ms-lg-3">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Grade Range
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div class="row">
+                 <div class="col-lg-4  py-2 ms-lg-3 ">
+                   <h6 class="dropdown-header ">CLASSES</h6>
+                    <li><a class="dropdown-item " href="#" onclick="filterCourses('6-8')">6-8</a></li>
+                    <li><a class="dropdown-item " href="#" onclick="filterCourses('9-10')">9-10</a></li>
+                    <li><a class="dropdown-item " href="#" onclick="filterCourses('10-12')">10-12</a></li>
+                 </div>
+                  </div>
+
+                </ul>
+              </li>
+              <li class="nav-item dropdown ms-lg-3">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Course Types
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div class="row">
+                 <div class="col-lg-4  py-2 ms-lg-3 ">
+                   <h6 class="dropdown-header ">SUBJECTS</h6>
+                   <li><a class="dropdown-item " href="#" onclick="filterCoursesByType('Math')">Math</a></li>
+                   <li><a class="dropdown-item " href="#" onclick="filterCoursesByType('Science')">Science</a></li>
+                   <li><a class="dropdown-item " href="#" onclick="filterCoursesByType('History')">History</a></li>                  
+                 </div>
+                  </div>
+                  
+                </ul>
+              </li>
+              <li class="nav-item dropdown ms-lg-3">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Difficulty Level
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item one" href="#">
+                    <i class="fas fa-book-open fa-1x p-3 " style="background-color: rgb(136, 223, 238); color: blue;border-radius: 50%;"></i>
+                  Easy
+                  </a>
+                  <li><hr class="dropdown-divider"></li>
+                  <a class="dropdown-item one" href="#">
+                    <i class="fas fa-file fa-1x p-3 text-center" style="background-color: rgb(136, 223, 238); color: blue;border-radius: 50%; width: 48px;"></i>
+                   Medium
+                  </a>
+                  <li><hr class="dropdown-divider"></li>
+                  <a class="dropdown-item one" href="#">
+                    <i class="fas fa-book fa-1x p-3 text-center" style="background-color: rgb(136, 223, 238); color: blue;border-radius: 50%; width: 48px;"></i>
+                   Hard
+                  </a>
+                
+                </ul>
+              </li>
+
+            </ul>
+            <div class="ms-lg-5" >
+                <button type="button py-2 px-3" class="btn btn-primary">Buy Now &#8594; </button>
+            </div>
+            
+          </div>
+        </div>
+      </nav>
+      <section id="courses">
+        <header class="head">
+            <div class="container py-5 px-4 mx-auto">
+                <div class="row py-5">
+                    <div class="col-lg-6 col-11 my-auto">
+                        <span class="p-2 px-3 star mt-5" style="background-color: #e4ddf7;">Explore Courses! </span>
+                        <h1 class="my-2" style="font-size: 38px; color: white;">Unlock Your Learning Potential</h1>
+                        <p class="pl" style="color: #ffffff80;">Discover a world of knowledge tailored to your grade level. Find courses that match your curriculum, enhance your skills, and boost your academic success!</p>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="card rounded">
+                            <div class="card-header p-4">
+                                Sign up to Access Grade-specific Courses!
+                            </div>
+                            <form id="exploreCoursesForm" class="row g-3 p-4">
+                                <div class="col-md-6">
+                                    <label for="inputFirstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control py-2" id="inputFirstName">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputLastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control py-2" id="inputLastName">
+                                </div>
+                                <div class="col-12">
+                                    <label for="inputEmail" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control py-2" id="inputEmail">
+                                </div>
+                                <div class="col-12">
+                                    <label for="inputGrade" class="form-label">Grade Level</label>
+                                    <select class="form-select py-2" id="inputGrade">
+                                        <option selected disabled>Select Grade</option>
+                                        <option value="6-8">Grade 6-8</option>
+                                        <option value="9-10">Grade 9-10</option>
+                                        <option value="11-12">Grade 11-12</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 pt-2">
+                                    <button type="button" class="btn btn-primary pt-2 px-5" onclick="exploreCourses()">Explore Courses</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-shape-divider-bottom-1627195218">
+                    <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+                </div>
+            </div>
+        </header> 
+        <!-- Displayed courses will be updated here -->
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
